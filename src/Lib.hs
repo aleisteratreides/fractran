@@ -1,7 +1,8 @@
 module Lib
-    ( someFunc,
-      calculateSequence,
+    ( calculateSequence,
       calculateFinalNumber,
+      sumProgram,
+      subtractionProgram,
     ) where
 
 
@@ -19,11 +20,11 @@ nextNumber n (x:xs) =
     where multiplied = (x * fromIntegral n)
 
 calculateSequence :: Integer -> Program -> [Maybe Integer]
-calculateSequence n programm = 
+calculateSequence n program = 
   if isNothing next
     then []
-    else next : calculateSequence (fromJust next) programm
-    where next = nextNumber n programm
+    else next : calculateSequence (fromJust next) program
+    where next = nextNumber n program
 
 calculateFinalNumber :: Integer -> Program -> Maybe Integer
 calculateFinalNumber n program = go (Just n) program Nothing
@@ -31,6 +32,9 @@ calculateFinalNumber n program = go (Just n) program Nothing
     go Nothing _ last = last
     go n program _ = go (nextNumber (fromJust n) program) program n
 
--- find 3^(12+4)
-someFunc :: IO ()
-someFunc = print $ calculateFinalNumber (2^12 * 3^4) [3 % 2]
+
+sumProgram :: Program
+sumProgram = [3 % 2]
+
+subtractionProgram :: Program
+subtractionProgram = [1 % 6]
