@@ -31,5 +31,6 @@ calculateFinalNumber n program = go (Just n) program Nothing
     go Nothing _ last = last
     go n program _ = go (nextNumber (fromJust n) program) program n
 
+-- find 3^(12+4)
 someFunc :: IO ()
-someFunc = putStrLn "Hello"
+someFunc = print $ calculateFinalNumber (2^12 * 3^4) [3 % 2]
