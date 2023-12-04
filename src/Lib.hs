@@ -1,10 +1,4 @@
-module Lib
-    ( calculateSequence,
-      calculateFinalNumber,
-      sumProgram,
-      subtractionProgram,
-    ) where
-
+module Lib where
 
 import GHC.Real
 import Data.Maybe
@@ -32,9 +26,21 @@ calculateFinalNumber n program = go (Just n) program Nothing
     go Nothing _ last = last
     go n program _ = go (nextNumber (fromJust n) program) program n
 
-
 sumProgram :: Program
 sumProgram = [3 % 2]
 
 subtractionProgram :: Program
 subtractionProgram = [1 % 6]
+
+primeNumbers :: Program
+primeNumbers = [
+    7  % 3  ,
+    99 % 98 ,
+    13 % 49 ,
+    39 % 35 ,
+    36 % 91 ,
+    10 % 143,
+    49 % 13 ,
+    7  % 11 ,
+    1  % 2  ,
+    91 % 1]
