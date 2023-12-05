@@ -30,6 +30,5 @@ main = do
     -- print $ showSummation
     -- print $ showSubstraction
     -- print $ showSummationExplicit
-    let h = head showPrimeNumbers
     let firstPrimes = take 10 (filter isPowerOfTen (showPrimeNumbers))
     print $ zip firstPrimes (map logTenMaybe firstPrimes)
